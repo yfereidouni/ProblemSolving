@@ -8,7 +8,7 @@ namespace SalesbyMatch
     {
         static void Main(string[] args)
         {
-            int[] ar = new int[] { 6, 5, 2, 3, 5, 2, 2, 1, 1, 5, 1, 3, 3, 3, 5};
+            int[] ar = new int[] { 6, 5, 2, 3, 5, 2, 2, 1, 1, 5, 1, 3, 3, 3, 5 }; //2+1+2+1
             int n = 15;
             Console.WriteLine(myfunc(n, ar));
             Console.ReadLine();
@@ -20,17 +20,12 @@ namespace SalesbyMatch
             for (int j = 0; j < n - 1; j++)
             {
                 int ikey = ar[j];
-                int ivalue;
-                int counter = 1;
-                for (int i = 0; i < n - 1; i++)
+                int ivalue=0;
+                for (int i = 0; i < n; i++)
                 {
-                    if (ar[j] == ar[i]) continue;
-                    else if (ikey == ar[i])
-                    {
-                        counter++;
-                    }
+                    if (ikey == ar[i]) ivalue++;
+
                 }
-                ivalue = counter / 2;
                 if (!mydic.ContainsKey(ikey))
                 {
                     mydic.Add(ikey, ivalue);
@@ -39,7 +34,7 @@ namespace SalesbyMatch
             int sum = 0;
             foreach (var item in mydic)
             {
-                sum += item.Value;
+                sum += item.Value/2;
             }
             return (sum);
         }
